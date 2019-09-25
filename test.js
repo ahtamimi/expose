@@ -1,4 +1,5 @@
 
+mocha.setup('bdd');
 
 describe('sum', function () {
     it('should return sum of arguments', function () {
@@ -19,7 +20,7 @@ describe('sum2', function () {
       });
   });
 
-
+  mocha.setup('bdd');
   let res = mocha.run();
   console.log(res);
   
