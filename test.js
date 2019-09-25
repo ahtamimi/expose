@@ -24,7 +24,7 @@ describe('sum2', function () {
   let res = mocha.run();
   script= document.createElement("div"); 
   script.id = "run-res";
-  script.appendChild(document.createTextNode(res));
+  script.appendChild(document.createTextNode(JSON.stringify(res)));
   document.body.appendChild(script);
   console.log(res);
   
