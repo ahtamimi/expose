@@ -22,6 +22,9 @@ describe('sum2', function () {
 
   mocha.setup('bdd');
   let res = mocha.run();
+  script= document.createElement("div"); 
+  script.id = "run-res";
+  document.body.appendChild(res);
   console.log(res);
-  return res;
+  
   
