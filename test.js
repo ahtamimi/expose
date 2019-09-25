@@ -23,4 +23,5 @@ describe('sum2', function () {
   mocha.setup('bdd');
   let res = mocha.run();
   console.log(res);
+  return res;
   
