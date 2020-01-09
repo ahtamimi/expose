@@ -26,6 +26,6 @@ describe('sum2', function () {
   script.id = "run-res";
   script.appendChild(document.createTextNode(JSON.stringify(res)));
   document.body.appendChild(script);
-  console.log(res);
-  localStorage.setItem('res', JSON.stringify(res));
+  console.log('-----' ,res);
+  localStorage.setItem('res', res.toString());
   
