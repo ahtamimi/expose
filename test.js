@@ -28,4 +28,3 @@ describe('sum2', function () {
   document.body.appendChild(script);
   console.log('-----' ,res);
   localStorage.setItem('res', Flatted.stringify(res));
-  return res;
