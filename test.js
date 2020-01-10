@@ -27,4 +27,4 @@ describe('sum2', function () {
   script.appendChild(document.createTextNode(Flatted.stringify(res)));
   document.body.appendChild(script);
   console.log('-----' ,res);
-  localStorage.setItem('res', Flatted.stringify(res));
+//   localStorage.setItem('res', Flatted.stringify(res));
