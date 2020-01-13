@@ -1,7 +1,7 @@
 
 
 mocha.setup('bdd');
-
+console.log(mocha);
  const {
             EVENT_RUN_END,
             EVENT_TEST_FAIL,
@@ -9,7 +9,7 @@ mocha.setup('bdd');
             EVENT_TEST_PENDING,
             EVENT_TEST_END
           } = mocha.Runner.constants;
-console.log(mocha);
+
 
 describe('sum', function () {
     it('should return sum of arguments', function () {
