@@ -1,5 +1,6 @@
 
 
+mocha.setup('bdd');
 
 describe('sum', function () {
     it('should return sum of arguments', function () {
