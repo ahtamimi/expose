@@ -1,14 +1,14 @@
 
 
 mocha.setup('bdd');
-console.log(mocha);
- const {
-            EVENT_RUN_END,
-            EVENT_TEST_FAIL,
-            EVENT_TEST_PASS,
-            EVENT_TEST_PENDING,
-            EVENT_TEST_END
-          } = mocha.Runner.constants;
+// console.log(mocha);
+//  const {
+//             EVENT_RUN_END,
+//             EVENT_TEST_FAIL,
+//             EVENT_TEST_PASS,
+//             EVENT_TEST_PENDING,
+//             EVENT_TEST_END
+//           } = mocha.Runner.constants;
 
 
 describe('sum', function () {
@@ -38,12 +38,15 @@ describe('sum2', function () {
   })
   .on(EVENT_TEST_PASS, function(test) {
       res.passed.push(getTestData(test));
+      console.log(mocha);
   })
   .on(EVENT_TEST_PENDING, function(test) {
       res.pending.push(getTestData(test));
+      console.log(mocha);
   })
   .on(EVENT_TEST_FAIL, function(test, err) {
       res.failed.push(getTestData(test, err));
+      console.log(mocha);
   })
   .on(EVENT_RUN_END, function() {
       if(res.failed.length > 0)
