@@ -54,6 +54,6 @@ describe('sum2', function () {
       
       script= document.createElement("div"); 
       script.id = "run-res";
-      script.appendChild(document.createTextNode(Flatted.stringify(res)));
+      script.appendChild(document.createTextNode(res));
       document.body.appendChild(script);
   });
