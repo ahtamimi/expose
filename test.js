@@ -33,22 +33,22 @@ describe('sum2', function () {
   let res = {passed: [], failed: [], pending: [], success: true};
   mocha.reporter('min');
   mocha.run()
-  .on(EVENT_TEST_END, function(test) {
+  .on('test end', function(test) {
       res.file = test.file;
   })
-  .on(EVENT_TEST_PASS, function(test) {
+  .on('pass', function(test) {
       res.passed.push(getTestData(test));
       console.log(mocha);
   })
-  .on(EVENT_TEST_PENDING, function(test) {
+  .on('pending', function(test) {
       res.pending.push(getTestData(test));
       console.log(mocha);
   })
-  .on(EVENT_TEST_FAIL, function(test, err) {
+  .on('fail', function(test, err) {
       res.failed.push(getTestData(test, err));
       console.log(mocha);
   })
-  .on(EVENT_RUN_END, function() {
+  .on('end', function() {
       if(res.failed.length > 0)
           res.success = false;    
       
