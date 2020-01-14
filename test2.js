@@ -1,4 +1,5 @@
 var xquerrailCommon = require('./test.js');
+
 mocha.setup('bdd');
 
 describe('sum', function () {
