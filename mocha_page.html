@@ -6,6 +6,58 @@
 	<script type="text/javascript" src="https://unpkg.com/mocha/mocha.js"></script>
 	<script type="text/javascript" src="https://unpkg.com/mocha/mocha.js"></script>
         <script src="https://salathegroup.github.io/nodular.js/nodular.js"></script>
+     	<script>
+            // Code in this script is there for the demo page only. Don't pay attention to it
+            function showCode(name, text, keepID) {
+                var script = document.getElementById(name + '_script');
+                if (script.patched) {
+                    setTimeout(function(){showCode(name)}, 100);
+                    return;
+                }
+                var code = document.getElementById(name + '_code');
+                if (code && script) {
+                    var source = script.outerHTML;
+                    if (!keepID) {
+                        source = source.replace(/(<script).*?id="[^"]*"/, '$1');
+                    }
+                    // Remove source indentation
+                    var lines = source.split('\n');
+                    var spaces = lines[lines.length - 1].indexOf('</');
+                    source = lines.map(function(item){return item.replace(new RegExp(' {' + spaces + '}'), '');}).join('\n');
+
+                    // Replace < by &lt; and highlight comments
+                    source = source.replace(/</g, '&lt;').replace(/(\/\/.*)/g, '<font color="green">$1</font>');
+
+                    code.innerHTML = source;
+                    code.className = 'script';
+
+                    // Insert text before code
+                    if (text && text.length) {
+                        var span = document.createElement('SPAN');
+                        span.innerHTML = text;
+                        code.parentNode.insertBefore(span, code);
+                    }
+                }
+            }
+            function showOutput(result) {
+                var name = document.currentScript.id.replace(/_script/, '');
+                var output = document.getElementById(name);
+                if (output) {
+                    output.innerHTML = output.innerHTML + (output.innerHTML.length ? '<br>' : '') + result;
+                }
+            }
+            function showSourceCode(source, name, elements) {
+                for (var i=0, n = elements.length; i<n; i++) {
+                    var el = elements[i];
+                    el.innerHTML = source;
+                    if (name) {
+                        var span = document.createElement('SPAN');
+                        span.innerHTML = name + ':';
+                        el.parentNode.insertBefore(span, el);
+                    }
+                }
+            }
+        </script>
         <script id="initial_script">
             // Start time will be useful at the end of the page
             var startTime = new Date();
