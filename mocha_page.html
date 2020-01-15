@@ -86,8 +86,13 @@
     </head>
     <body>
 	<script id="test1_script">
+		const aa = "abc";
+	</script>
+	<script id="test1_script">
 		const csum = require('./lib.js');
 		console.log('--1----', csum);
+		console.log('--1----', csum(1,2));
+		console.log('--1----', aa);
 	</script>
         <div id="mocha"></div>
     </body>
