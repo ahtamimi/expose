@@ -87,13 +87,11 @@
     </head>
     <body>
 	<script id="test1_script">
-		const aa = "abc";
+		var assert = require('chai').assert;
+		var expect = require('chai').expect;
 	</script>
 	<script id="test1_script">
 		var csum = require('./lib.js');
-		console.log('--1----', csum);
-		console.log('--1----', csum(1,2));
-		console.log('--1----', aa);
 	</script>
         <div id="mocha"></div>
     </body>
