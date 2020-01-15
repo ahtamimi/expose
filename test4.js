@@ -1,5 +1,6 @@
 mocha.setup('bdd');
 console.log('--2----', csum);
+console.log('--2----', aa);
 describe('sum', function () {
     it('should return sum of arguments', function () {
       chai.expect(csum(1, 2)).to.equal(3);
